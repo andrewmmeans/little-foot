@@ -5,6 +5,12 @@ A NLP Case Study of BigFoot Sightings
 
 ## EDA
 
+### Additional Datasets
+
+#### Census.gov
+
+Population per state from 2010 Census - https://www.census.gov/data/datasets/time-series/demo/popest/2010s-state-total.html#par_textimage_1873399417
+
 ### Classification of Reports
 
 Source: https://www.bfro.net/GDB/classify.asp
