@@ -118,6 +118,8 @@ With the Random Forest Classifier, we were able to predict class with an Accurac
 ## Tuning and Evaluation
 ![feature_importance](https://github.com/andrewmmeans/little-foot/blob/master/images/feature_importances.png)
 
+
+![confusion_matrix](https://github.com/andrewmmeans/little-foot/blob/master/images/confusion_matrix_bigfoot.png)
 ## Results
 
 We decided to examine some of these words by 
