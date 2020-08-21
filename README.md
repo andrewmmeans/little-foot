@@ -127,5 +127,7 @@ We decided to examine some of these words by
 ## Questions
 What state has the most bigfoot sightings?
 
+    Washington State has both, the most raw number of sightings AND the highest number of sightings when scaled for population. And if you want to dive further, your best bet to catch a glimpse of Bigfoot is in Pierce County.
+
 Are there regional differences of language used to describe reports of bigfoot?
 
