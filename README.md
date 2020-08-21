@@ -45,7 +45,7 @@ def remove_stopwords_and_punct(entry):
     words = [snow.stemmer.stem(word) for word in words]
     
     return " ".join(words)  
-    print('Hello World')
+df['OBSERVED'] = df['OBSERVED'].apply(lambda x: remove_stopwords_and_punct(x))
 ```
 
 ## Machine Learning Model Decisioning
