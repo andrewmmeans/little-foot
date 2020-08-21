@@ -37,6 +37,16 @@ Almost all reports included in the database are first-hand reports. Occassionall
 Most second-hand reports, and any third-hand reports, or stories with an untraceable sources, are considered Class C, because of the high potential for inaccuracy. Those reports are kept in BFRO archives but are very rarely listed publicly in this database. The exceptions are for published, or locally documented incidents from before 1958 (before the word "Bigfoot" entered the American vocabulary), and sightings mentioned in non-tabloid newspapers or magazines.
 
 ## Overview of the NLP Pipeline
+  ```python
+def remove_stopwords_and_punct(entry):
+    words = str(entry).split()
+    words = [word.lower() for word in words if word.lower() not in stopwords_ and word.lower() not in punctuation_]
+    words = [lemmatizer.lemmatize(word, pos = 'v') for word in words]
+    words = [snow.stemmer.stem(word) for word in words]
+    
+    return " ".join(words)  
+    print('Hello World')
+```
 
 ## Machine Learning Model Decisioning
 
