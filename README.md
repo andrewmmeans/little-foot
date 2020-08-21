@@ -50,7 +50,11 @@ df['OBSERVED'] = df['OBSERVED'].apply(lambda x: remove_stopwords_and_punct(x))
 ```
 
 ## Machine Learning Model Decisioning
+We decided on a Random Forest Classifier as our class classification model.  Initially we wanted to classify each sighting to class A, B, or C, but due to the very low instances of class C, we decided to split it into two categories:
+- Class A: Reliable
+- Not Class A: Unreliable
 
+With the Random Forest Classifier, we were able to predict class with an Accuracy of .8023, and Log Loss of 0.5154.
 ## Tuning and Evaluation
 
 ## Results
