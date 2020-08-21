@@ -119,5 +119,5 @@ if __name__ == '__main__':
         except Exception as e:
             print(f'row: {i}', e)
     df = pd.DataFrame(processed)
-    print(df.head())
+    df.to_pickle('data/processed_df.pkl')
 
