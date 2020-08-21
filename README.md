@@ -1,4 +1,7 @@
 # little-foot
+
+![little-foot](https://github.com/andrewmmeans/little-foot/blob/master/images/bigfoot_small.jpg)
+
 A NLP Case Study of BigFoot Sightings
 
 ## A view of the raw data
