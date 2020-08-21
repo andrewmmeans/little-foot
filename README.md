@@ -56,9 +56,12 @@ We decided on a Random Forest Classifier as our class classification model.  Ini
 
 With the Random Forest Classifier, we were able to predict class with an Accuracy of .8023, and Log Loss of 0.5154.
 ## Tuning and Evaluation
+![feature_importance](https://github.com/andrewmmeans/little-foot/blob/master/images/feature_importances.png)
+
+We decided to examine some of these words by 
+![forest_pred_by_word](https://github.com/andrewmmeans/little-foot/blob/master/images/forest_pred_by_word.png)
 
 ## Results
-
 
 
 ## Questions
