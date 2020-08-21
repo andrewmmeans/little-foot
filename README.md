@@ -122,7 +122,7 @@ With the Random Forest Classifier, we were able to predict class with an Accurac
 ![confusion_matrix](https://github.com/andrewmmeans/little-foot/blob/master/images/confusion_matrix_bigfoot.png)
 ## Results
 
-We decided to examine some of these words by 
+We decided to examine some of these words by passing them through our Random Forrest Classifier
 ![forest_pred_by_word](https://github.com/andrewmmeans/little-foot/blob/master/images/forest_pred_by_word.png)
 
 
