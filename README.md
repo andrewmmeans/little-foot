@@ -94,7 +94,14 @@ Most second-hand reports, and any third-hand reports, or stories with an untrace
 
 ## EDA
 
+### Sightings Per Capita
 ![sightings](https://github.com/andrewmmeans/little-foot/blob/master/images/sightings_per_capita.png)
+
+### Sightings Over Time
+![overtime](https://github.com/andrewmmeans/little-foot/blob/master/images/sightings_over_time.png)
+
+### Seasons
+![season](https://github.com/andrewmmeans/little-foot/blob/master/images/seasons.png)
 
 ## Overview of the NLP Pipeline
   ```python
