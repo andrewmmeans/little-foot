@@ -1,10 +1,69 @@
 # little-foot
+
+![little-foot](https://github.com/andrewmmeans/little-foot/blob/master/images/bigfoot_small.jpg)
+
 A NLP Case Study of BigFoot Sightings
 
 ## A view of the raw data
 
-## EDA
+![raw-data](https://github.com/andrewmmeans/little-foot/blob/master/images/raw_data.png)
 
+### Preprocessing
+
+```Python
+def build_details(str_lst):
+    """
+    Parameters
+    ----------
+    str_list: list(str)
+        A list of strings
+
+    Returns
+    -------
+    result : dict
+        A dictionary with key, value pairs from processing the details section
+    """
+    # empty list to store return key value pairs
+    result = {}
+    
+    valid_columns = ['YEAR', 'SEASON', 'MONTH', 'STATE', 'COUNTY', 'LOCATION DETAILS',
+       'NEAREST TOWN', 'NEAREST ROAD', 'OBSERVED', 'ALSO NOTICED',
+       'OTHER WITNESSES', 'OTHER STORIES', 'TIME AND CONDITIONS',
+       'ENVIRONMENT', 'DATE', 'extra']
+    
+    # flag to alter the way we build keys
+    process_diff = False
+    
+    # empty array to store extra information if process_diff flag is True
+    extra = []
+    for i, x in enumerate(str_lst):
+        # splits each line into a key, value string pair
+        first, *second = x.split(':')
+        
+        if not first.isupper() and first not in valid_columns:    
+            # checks if key isn't CAPS, if not we process the rest of the html differently
+            process_diff = True
+            
+        if not process_diff:
+            # we join the second part in case there exists a colon ":" inside the raw text
+            result[first] = (' '.join(second)).strip()
+            
+        else:
+            # append each extra line to a general array
+            extra.append(x)
+    
+    # combine all extra values into a single long string
+    result['extra'] = ' '.join(extra)
+    remove_keys = []
+    # find all keys that don't match schema
+    for key in result.keys():
+        if key not in valid_columns:
+            remove_keys.append(key)
+    # remove keys from result
+    for key in remove_keys:
+        result.pop(key)
+    return result
+```
 ### Additional Datasets
 
 #### Census.gov
@@ -33,18 +92,43 @@ Almost all reports included in the database are first-hand reports. Occassionall
 
 Most second-hand reports, and any third-hand reports, or stories with an untraceable sources, are considered Class C, because of the high potential for inaccuracy. Those reports are kept in BFRO archives but are very rarely listed publicly in this database. The exceptions are for published, or locally documented incidents from before 1958 (before the word "Bigfoot" entered the American vocabulary), and sightings mentioned in non-tabloid newspapers or magazines.
 
+## EDA
+
+![sightings](https://github.com/andrewmmeans/little-foot/blob/master/images/sightings_per_capita.png)
+
 ## Overview of the NLP Pipeline
+  ```python
+def remove_stopwords_and_punct(entry):
+    words = str(entry).split()
+    words = [word.lower() for word in words if word.lower() not in stopwords_ and word.lower() not in punctuation_]
+    words = [lemmatizer.lemmatize(word, pos = 'v') for word in words]
+    words = [snow.stemmer.stem(word) for word in words]
+    
+    return " ".join(words)  
+    
+df['OBSERVED'] = df['OBSERVED'].apply(lambda x: remove_stopwords_and_punct(x))
+```
 
 ## Machine Learning Model Decisioning
+We decided on a Random Forest Classifier as our class classification model.  Initially we wanted to classify each sighting to class A, B, or C, but due to the very low instances of class C, we decided to split it into two categories:
+- Class A: Reliable
+- Not Class A: Unreliable
 
+With the Random Forest Classifier, we were able to predict class with an Accuracy of .8023, and Log Loss of 0.5154.
 ## Tuning and Evaluation
+![feature_importance](https://github.com/andrewmmeans/little-foot/blob/master/images/feature_importances.png)
 
 ## Results
+
+We decided to examine some of these words by 
+![forest_pred_by_word](https://github.com/andrewmmeans/little-foot/blob/master/images/forest_pred_by_word.png)
 
 
 
 ## Questions
 What state has the most bigfoot sightings?
+
+Washington State has the highest number of sightings AND the highest number of sightings when scaled for population. And if you want to dive further, your best bet to catch a glimpse of Bigfoot is in Pierce County.
 
 Are there regional differences of language used to describe reports of bigfoot?
 
